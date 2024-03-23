@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+:root 
+{
+    --teste: blue;
+}
+
+#front
+{
+    position: relative;
+    background-color: aqua;
+    color: white;
+}
+
+#logo
+{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+#card_number
+{
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+}
+
+#card_name
+{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+#card_date
+{
+    position: absolute;
+    bottom: 10px;
+    left: 350px;
+}
+
+#back {
+    position: relative;
+    background-color: seagreen;
+    color: white;
+    width: auto;
+}
+
+#card_cvc
+{
+    position: absolute;
+    bottom: 103px;
+    left: 350px;
+}
