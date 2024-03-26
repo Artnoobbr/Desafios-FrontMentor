@@ -27,7 +27,7 @@
     <p id="card_number">0000 0000 0000 0000</p>
  
     <p id="card_name">Jane Appleseed</p>
-    <p id="card_date">00/00</p>
+    <p id="card_date"><span id="date_month">00</span>/<span id="date_year">00</span></p>
   
   </section>
   <section id="back">
@@ -49,11 +49,11 @@
      <input type="text" name="txtnumber" id="number" placeholder="e.g. 1234 5678 9123 0000">
 
      <p>Exp. Date (MM/YY)</p>
-     <input type="number" name="txtmonth" id="month" placeholder="MM">
-     <input type="number" name="txtyear" id="year" placeholder="YY">
+     <input type="text" name="txtmonth" id="month" placeholder="MM" maxlength="2">
+     <input type="text" name="txtyear" id="year" placeholder="YY" maxlength="2">
 
      <p>CVC</p>
-     <input type="number" name="txtcvc" id="cvc" placeholder="e.g. 123">
+     <input type="text" name="txtcvc" id="cvc" placeholder="e.g. 123">
      <button id="confirm">Confirm</button>
 
    </section>
