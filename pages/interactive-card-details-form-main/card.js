@@ -38,24 +38,24 @@ function input_number()
     var spaces = (text.split(" ").length - 1);
     console.log("tem essa quantidade de espaços: " + spaces)
     console.log("lenght antes de atualizar " + lenght)
-    let last_lenght = ((number_input).value).length //problema aqui -eu de 12:55
+    let last_lenght = ((number_input).value).length - spaces //problema aqui -eu de 12:55
 
 
     if (text_split_last == ' ')
     {
         console.log("Espaço no ultimo")
-        last_lenght = lenght
+        lenght++
     }
     else if (lenght > last_lenght)
     {
         console.log("diminuiu!")
-        lenght--
+        lenght -= 1
         card_split[lenght] = "0"
     }
     else if (lenght < last_lenght)
     {    
         console.log("aumentou!")
-        lenght++
+        lenght += 1
     }
 
 
@@ -68,6 +68,15 @@ function input_number()
     {
         console.log("limite máximo!")
         lenght = 16
+    }
+    else if (text_split.length == 0)
+    {
+        console.log("Split zerado! colocado zeros!")
+        lenght = 0
+        for(let x = 0; x < 16; x++)
+        {
+            card_split[x] = "0"
+        }
     }
     else
     {
