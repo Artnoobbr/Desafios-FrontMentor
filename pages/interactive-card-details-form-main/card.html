@@ -17,58 +17,62 @@
 </head>
 <body>
 
+
 <div id="card">
 
-  <section id="front">
-
-    <img src="images/bg-card-front.png" alt="Card front">
-    <img id="logo" src="images/card-logo.svg" alt="Card logo">
-
-    <p id="card_number">0000 0000 0000 0000</p>
- 
-    <p id="card_name">Jane Appleseed</p>
-    <p id="card_date"><span id="date_month">00</span>/<span id="date_year">00</span></p>
-  
-  </section>
-  <section id="back">
-
-    <img src="images/bg-card-back.png" alt="Card back ">
-    <p id="card_cvc">000</p>
-
-  </section>
+  <div id="bg"></div>
+  <div id="space">
+    <section id="front">
+      <img src="images/bg-card-front.png" alt="Card front">
+      <img id="logo" src="images/card-logo.svg" alt="Card logo">
+      <p id="card_number">0000 0000 0000 0000</p>
+      <p id="card_name">Jane Appleseed</p>
+      <p id="card_date"><span id="date_month">00</span>/<span id="date_year">00</span></p>
+    
+    </section>
+    <section id="back">
+      <img src="images/bg-card-back.png" alt="Card back ">
+      <p id="card_cvc">000</p>
+    </section>
+  </div>
 
 </div>
 
  <main>
    <section>
     
-     <p>Cardholder Name</p>
-     <input type="text" placeholder="e.g. Jane Appleseed" id="name" maxlength="28">
+     <p class="input_title">Cardholder Name</p>
+     <input type="text" placeholder="e.g. Jane Appleseed" id="name" class="input" maxlength="28">
      
-     <p>Card Number</p>
-     <input type="text" name="txtnumber" id="number" placeholder="e.g. 1234 5678 9123 0000">
+     <p class="input_title">Card Number</p>
+     <input type="text" name="txtnumber" id="number" class="input" placeholder="e.g. 1234 5678 9123 0000">
 
-     <p>Exp. Date (MM/YY)</p>
-     <input type="text" name="txtmonth" id="month" placeholder="MM" maxlength="2">
-     <input type="text" name="txtyear" id="year" placeholder="YY" maxlength="2">
-
-     <p>CVC</p>
-     <input type="text" name="txtcvc" id="cvc" placeholder="e.g. 123" maxlength="3">
+     <div id="compact">
+       <div>
+         <p class="input_title">Exp. Date (MM/YY)</p>
+         <input type="text" name="txtmonth" id="month" class="input date" placeholder="MM" maxlength="2">
+         <input type="text" name="txtyear" id="year" class="input date" placeholder="YY" maxlength="2">
+       </div>
+       <div>
+         <p class="input_title">CVC</p>
+         <input type="text" name="txtcvc" id="cvc" class="input" placeholder="e.g. 123" maxlength="3">
+       </div>
+     </div>
      <button id="confirm">Confirm</button>
 
+     <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/Artnoobbr">Artnoobbr</a>.
+    </div>
    </section>
    <!-- Completed state start -->
-   <section>
+   <section id="thanks">
      <h1>Thank you!</h1>
      <p>We've added your card details</p>
      <button>Continue</button>
    </section>
  </main>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/Artnoobbr">Artnoobbr</a>.
-  </div>
   <script src="card.js"></script>
 </body>
 </html>

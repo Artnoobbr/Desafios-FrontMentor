@@ -1,15 +1,63 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 :root 
 {
     --teste: blue;
 }
 
+*
+{
+    margin: 0%;
+    margin-bottom: 0px;
+    padding: 0%;
+}
+
+body 
+{
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+
+}
+
+#bg 
+{
+    background-image: url(images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 681px;
+}
+
+
+#card 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#space
+{
+    display: flex;
+    flex-direction: column;
+}
+
 #front
 {
     position: relative;
-    background-color: aqua;
     color: white;
+    letter-spacing: 2px;
+    right: 300px;
+
+    margin-bottom: 20px;
+}
+
+#back
+{
+    right: 250px;
 }
 
 #logo
@@ -22,26 +70,29 @@
 #card_number
 {
     position: absolute;
-    bottom: 100px;
-    left: 20px;
+    bottom: 65px;
+    left: 22px;
+
+    letter-spacing: 3px;
+    font-size: 29px;
 }
 
 #card_name
 {
     position: absolute;
-    bottom: 10px;
+    bottom: 25px;
     left: 20px;
+    text-transform: uppercase;
 }
 #card_date
 {
     position: absolute;
-    bottom: 10px;
+    bottom: 25px;
     left: 350px;
 }
 
 #back {
     position: relative;
-    background-color: seagreen;
     color: white;
     width: auto;
 }
@@ -49,6 +100,62 @@
 #card_cvc
 {
     position: absolute;
-    bottom: 103px;
+    bottom: 118px;
     left: 350px;
+    letter-spacing: 2px;
+}
+
+main 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+main > section
+{
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 2px;
+    gap: 10px;
+}
+
+#compact
+{
+    display: flex;
+    gap: 20px;
+}
+
+.input
+{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+.input_title
+{
+    text-transform: uppercase;
+    font-size: 13px;
+}
+.date
+{
+    width: 60px;
+}
+
+#cvc
+{
+    width: 170px;
+}
+
+#confirm
+{
+    display: inline-block;
+}
+
+#thanks
+{
+    display: none;
 }

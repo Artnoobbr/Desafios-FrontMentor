@@ -27,7 +27,7 @@ let lenght = ((number_input).value).length
 let card_numbers = "0000000000000000" // 0000 0000 0000 0000
 let card_split = card_numbers.split("")
 
-//Month
+// Month
 month_input.value = ""
 let length_month_old = ((month_input).value).length
 let month_numbers = "00"
@@ -56,6 +56,7 @@ month_input.addEventListener("input", input_month)
 year_input.addEventListener("input", input_year)
 cvc_input.addEventListener("input", input_cvc)
 
+//Ideia de criar uma função unica para o month,year e cvc
 
 //Do not remove the console.logs!
 function input_number()
