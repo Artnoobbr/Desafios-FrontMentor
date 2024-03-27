@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="card.css">
+  <link rel="stylesheet" href="card_mobile.css">
   
   <title>Frontend Mentor | Interactive card details form</title>
 
@@ -23,7 +24,7 @@
   <div id="bg"></div>
   <div id="space">
     <section id="front">
-      <img src="images/bg-card-front.png" alt="Card front">
+      <img id="card_front_image" src="images/bg-card-front.png" alt="Card front">
       <img id="logo" src="images/card-logo.svg" alt="Card logo">
       <p id="card_number">0000 0000 0000 0000</p>
       <p id="card_name">Jane Appleseed</p>
@@ -31,7 +32,7 @@
     
     </section>
     <section id="back">
-      <img src="images/bg-card-back.png" alt="Card back ">
+      <img id="card_back_image" src="images/bg-card-back.png" alt="Card back ">
       <p id="card_cvc">000</p>
     </section>
   </div>
@@ -39,7 +40,7 @@
 </div>
 
  <main>
-   <section>
+   <section id="input_area">
     
      <p class="input_title">Cardholder Name</p>
      <input type="text" placeholder="e.g. Jane Appleseed" id="name" class="input" maxlength="28">
@@ -58,7 +59,7 @@
          <input type="text" name="txtcvc" id="cvc" class="input" placeholder="e.g. 123" maxlength="3">
        </div>
      </div>
-     <button id="confirm">Confirm</button>
+     <button class="button" id="confirm">Confirm</button>
 
      <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
@@ -67,9 +68,10 @@
    </section>
    <!-- Completed state start -->
    <section id="thanks">
-     <h1>Thank you!</h1>
-     <p>We've added your card details</p>
-     <button>Continue</button>
+    <img src="images/icon-complete.svg" alt="Complete icon">
+    <h1>Thank you!</h1>
+    <p>We've added your card details</p>
+    <button class="button" id="continue">Continue</button>
    </section>
  </main>
 

@@ -1,12 +1,25 @@
-const button = document.getElementById("confirm")
-button.addEventListener("click", Card)
-
 // Card Text
 let card_name = document.getElementById("card_name")
 let card_number = document.getElementById("card_number")
 let card_month = document.getElementById("date_month")
 let card_year = document.getElementById("date_year")
 let card_cvc = document.getElementById("card_cvc")
+
+// Other elements
+let input_area = document.getElementById("input_area")
+let thanks = document.getElementById("thanks")
+
+let confirm_button = document.getElementById("confirm")
+let continue_button = document.getElementById("continue")
+
+
+
+input_area.style.display = "flex"
+thanks.style.display = "none"
+
+confirm_button.addEventListener("click", Confirm)
+continue_button.addEventListener("click", Continue)
+
 
 // Card Input
 let name_input = document.getElementById("name")
@@ -354,7 +367,14 @@ function input_name()
 }
 
 
-function Card()
+function Confirm()
 {
-    console.log("Apertou!")
+    input_area.style.display = "none"
+    thanks.style.display = "flex"
 }
+
+function Continue()
+{
+    location.reload()
+}
+

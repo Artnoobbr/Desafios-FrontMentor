@@ -5,6 +5,11 @@
 :root 
 {
     --teste: blue;
+    --button_background: hsl(278, 68%, 11%);
+    --button_color: white;
+    --sub_text: hsl(279, 6%, 55%);
+    --input_border: hsl(270, 3%, 87%);
+    --input_color: hsl(279, 6%, 55%);
 }
 
 *
@@ -113,12 +118,14 @@ main
     align-items: center;
 }
 
-main > section
+#input_area
 {
+    position: relative;
     display: flex;
     flex-direction: column;
     letter-spacing: 2px;
     gap: 10px;
+    right: 120px;    
 }
 
 #compact
@@ -127,14 +134,26 @@ main > section
     gap: 20px;
 }
 
+
 .input
 {
-    border: 1px solid grey;
-    border-radius: 5px;
+    border: 1px solid var(--input_border);
+    color: var(--input_color);
+    border-radius: 8px;
     padding: 10px;
     font-family: "Space Grotesk", sans-serif;
     font-size: 18px;
 }
+
+.input:focus
+{
+    outline: none;
+    background: linear-gradient(white, white) padding-box,
+    linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
 .input_title
 {
     text-transform: uppercase;
@@ -150,12 +169,51 @@ main > section
     width: 170px;
 }
 
-#confirm
+.button
 {
     display: inline-block;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    background-color: var(--button_background);
+    color: white;
+}
+
+.button:hover
+{
+    cursor: pointer;
 }
 
 #thanks
 {
+    position: relative;
     display: none;
+
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    right: 120px;
+    gap: 10px;
+}
+
+#thanks > h1 
+{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+#thanks > p
+{
+    color: var(--sub_text);
+    margin-bottom: 20px;
+}
+
+#continue
+{
+    width: 300px;
 }
