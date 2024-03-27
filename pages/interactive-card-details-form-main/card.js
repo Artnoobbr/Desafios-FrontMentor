@@ -1,38 +1,60 @@
 const button = document.getElementById("confirm")
 button.addEventListener("click", Card)
 
-//Card Text
+// Card Text
+let card_name = document.getElementById("card_name")
 let card_number = document.getElementById("card_number")
 let card_month = document.getElementById("date_month")
 let card_year = document.getElementById("date_year")
+let card_cvc = document.getElementById("card_cvc")
 
-//Card Input
+// Card Input
+let name_input = document.getElementById("name")
 let number_input = document.getElementById("number")
 let month_input = document.getElementById("month")
 let year_input = document.getElementById("year")
+let cvc_input = document.getElementById("cvc")
+
+// Name
+name_input.value = ""
+let lenght_name_old = ((name_input).value).length
+let card_names = "Jane Appleseed"
+let names_split = card_names.split("")
+
+// Number
+number_input.value = ""
+let lenght = ((number_input).value).length
+let card_numbers = "0000000000000000" // 0000 0000 0000 0000
+let card_split = card_numbers.split("")
 
 //Month
 month_input.value = ""
 let length_month_old = ((month_input).value).length
 let month_numbers = "00"
 let month_split = month_numbers.split("")
-console.log(month_split)
+//console.log(month_split)
 
-//year
+// Year
 year_input.value = ""
+let length_year_old = ((year_input).value).length
+let year_numbers = "00"
+let year_split = year_numbers.split("")
 
-//Number
-number_input.value = ""
-let lenght = ((number_input).value).length
-let card_numbers = "0000000000000000" // 0000 0000 0000 0000
-let last_numbers_list = []
-let card_split = card_numbers.split("")
+// CVC
+cvc_input.value = ""
+let lenght_cvc_old = ((cvc_input).value).length
+let cvc_numbers = "000"
+let cvc_split = cvc_numbers.split("")
+
+
 //console.log(card_split)
 
 //Events
+name_input.addEventListener("input", input_name)
 number_input.addEventListener("input", input_number)
 month_input.addEventListener("input", input_month)
 year_input.addEventListener("input", input_year)
+cvc_input.addEventListener("input", input_cvc)
 
 
 //Do not remove the console.logs!
@@ -125,15 +147,18 @@ function input_number()
 
 
 function input_month()
-{
+{   
+    //Ideia poderia criar uma function que fazia essa funcção ao inves de
+    //So copiar e colar o mesmo codigo, mas com coisas diferentes
+
     console.log("lenght month old é " + length_month_old)
-    lenght_month_new = ((month_input).value).length
-    text_month = (month_input).value
-    text_month_split = text_month.split("")
+    let lenght_month_new = ((month_input).value).length
+    let text_month = (month_input).value
+    let text_month_split = text_month.split("")
     console.log(text_month_split)
     console.log("lenght month new é " + lenght_month_new)
 
-    text_month_last = text_month_split[(text_month_split).length - 1]
+    let text_month_last = text_month_split[(text_month_split).length - 1]
     console.log("text month last number é " + text_month_last)
 
     if(lenght_month_new > length_month_old)
@@ -145,30 +170,186 @@ function input_month()
     {
         console.log("Removido! Month")
         length_month_old--
+        month_split[length_month_old] = "0"
         //Colocar algo aqui
     }
     console.log("lenght month old atualizado é " + length_month_old)
 
-    if (lenght_month_new > 2)
+
+    if (text_month_last == " ")
     {
-        console.log("Passou do limite! fazer nada!")
+        console.log("Espaço! fazer nada!")
+    }
+    else if (lenght_month_new == 0)
+    {
+        lenght_month_new = 0
+        for(let x = 0; x < 2; x++)
+        {
+            month_split[x] = "0"
+        }
     }
     else
     {
         month_split[lenght_month_new - 1] = text_month_last
     }
-    console.log(month_split)
 
-    for(let y = 0; y <= 2; y++)
+    card_month.innerHTML = ""
+    for(let y = 0; y < 2; y++)
     {
-        card_month.innerHTML = month_split[y]
+        console.log("y é " + y)
+        card_month.innerHTML += month_split[y]
     }
 
 }
 
 function input_year()
 {
-    alert("Working! year")
+    console.log("lenght month old é " + length_month_old)
+    
+    let lenght_year_new = ((year_input).value).length
+    let text_year = (year_input).value
+    let text_year_split = text_year.split("")
+    console.log(text_year_split)
+    console.log("lenght year new é " + lenght_year_new)
+
+    let text_year_last = text_year_split[(text_year_split).length - 1]
+    console.log("text year last number é " + text_year_last)
+
+    
+
+    if(lenght_year_new > length_year_old)
+    {
+        console.log("Adicionado! Year")
+        length_year_old++
+    }
+    else if (length_year_old > lenght_year_new)
+    {
+        console.log("Removido! Year")
+        length_year_old--
+        year_split[length_year_old] = "0"
+        //Colocar algo aqui
+    }
+    console.log("lenght month old atualizado é " + length_year_old)
+
+
+    if (text_year_last == " ")
+    {
+        console.log("Espaço! fazer nada!")
+    }
+    else if (lenght_year_new == 0)
+    {
+        lenght_year_new = 0
+        for(let x = 0; x < 2; x++)
+        {
+            year_split[x] = "0"
+        }
+    }
+    else
+    {
+        year_split[lenght_year_new - 1] = text_year_last
+    }
+
+    card_year.innerHTML = ""
+    for(let y = 0; y < 2; y++)
+    {
+        console.log("y é " + y)
+        card_year.innerHTML += year_split[y]
+    }
+}
+
+function input_cvc()
+{
+    console.log("lenght month old é " + lenght_cvc_old)
+    let lenght_cvc_new = ((cvc_input).value).length
+    let text_cvc = (cvc_input).value
+    let text_cvc_split = text_cvc.split("")
+    console.log(text_cvc_split)
+    console.log("lenght year new é " + lenght_cvc_new)
+
+    let text_cvc_last = text_cvc_split[(text_cvc_split).length - 1]
+    console.log("text year last number é " + text_cvc_last)
+
+    
+
+    if(lenght_cvc_new > lenght_cvc_old)
+    {
+        console.log("Adicionado! Year")
+        lenght_cvc_old++
+    }
+    else if (lenght_cvc_old > lenght_cvc_new)
+    {
+        console.log("Removido! Year")
+        lenght_cvc_old--
+        cvc_split[lenght_cvc_old] = "0"
+    }
+    console.log("lenght cvc old atualizado é " + lenght_cvc_old)
+
+
+    if (text_cvc_last == " ")
+    {
+        console.log("Espaço! fazer nada!")
+    }
+    else if (lenght_cvc_new == 0)
+    {
+        lenght_cvc_new = 0
+        for(let x = 0; x < 3; x++)
+        {
+            cvc_split[x] = "0"
+        }
+    }
+    else
+    {
+        cvc_split[lenght_cvc_new - 1] = text_cvc_last
+    }
+
+    card_cvc.innerHTML = ""
+    for(let y = 0; y < 3; y++)
+    {
+        console.log("y é " + y)
+        card_cvc.innerHTML += cvc_split[y]
+    } 
+}
+
+function input_name()
+{
+    console.log("lenght name old é " + lenght_name_old)
+    let lenght_name_new = ((name_input).value).length
+    let text_name = (name_input).value
+    let text_name_split = text_name.split("")
+    console.log(text_name_split)
+
+    let text_name_last = text_name_split[text_name_split.length - 1]
+    console.log("last text name " + text_name_last)
+
+    if(lenght_name_new > lenght_name_old)
+    {
+        console.log("Adicionado! Nome")
+        lenght_name_old++
+    }
+    else if (lenght_name_old > lenght_name_new)
+    {
+        console.log("Removido! Year")
+        lenght_name_old--
+        names_split[lenght_name_old] = ""
+    }
+
+    console.log("lenght name old atualizado é " + lenght_name_old)
+    
+
+    if (lenght_name_new == 0)
+    {
+        card_name.innerHTML = "Jane Appleseed"
+    }
+    else
+    {
+        card_name.innerHTML = ""
+        names_split[lenght_name_new - 1] = text_name_last
+    }
+
+    for(let y = 0; y < lenght_name_new; y++)
+    {
+        card_name.innerHTML += names_split[y]
+    } 
 }
 
 
