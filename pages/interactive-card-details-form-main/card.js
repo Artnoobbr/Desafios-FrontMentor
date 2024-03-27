@@ -159,171 +159,124 @@ function input_number()
     }
 }
 
+function character(lenght_old, input, input_split, card_input, type, maxlenght)
+{
+    console.log("lenght month old é " + lenght_old)
+    let lenght_new = ((input).value).length
+    let lenght_input_split = (input_split).length
+    let text_input = (input).value
+    let text_input_split = text_input.split("")
+    console.log(text_input_split)
+    console.log("lenght month new é " + lenght_new)
 
-function input_month()
-{   
-    //Ideia poderia criar uma function que fazia essa funcção ao inves de
-    //So copiar e colar o mesmo codigo, mas com coisas diferentes
+    let text_input_last = text_input_split[(text_input_split).length - 1]
+    console.log("text month last number é " + text_input_last)
 
-    console.log("lenght month old é " + length_month_old)
-    let lenght_month_new = ((month_input).value).length
-    let text_month = (month_input).value
-    let text_month_split = text_month.split("")
-    console.log(text_month_split)
-    console.log("lenght month new é " + lenght_month_new)
-
-    let text_month_last = text_month_split[(text_month_split).length - 1]
-    console.log("text month last number é " + text_month_last)
-
-    if(lenght_month_new > length_month_old)
+    if(lenght_new > lenght_old)
     {
         console.log("Adicionado! Month")
-        length_month_old++
+        lenght_old++
     }
-    else if (length_month_old > lenght_month_new)
+    else if (lenght_old > lenght_new)
     {
         console.log("Removido! Month")
-        length_month_old--
-        month_split[length_month_old] = "0"
-        //Colocar algo aqui
-    }
-    console.log("lenght month old atualizado é " + length_month_old)
-
-
-    if (text_month_last == " ")
-    {
-        console.log("Espaço! fazer nada!")
-    }
-    else if (lenght_month_new == 0)
-    {
-        lenght_month_new = 0
-        for(let x = 0; x < 2; x++)
+        lenght_old--
+        if (type == "number")
         {
-            month_split[x] = "0"
+            input_split[lenght_old] = "0"
+        }
+        else
+        {
+            input_split[lenght_old] = ""
+        }
+    }
+    console.log("lenghtold atualizado é " + lenght_old)
+
+
+    if (lenght_new == 0)
+    {
+        lenght_old = 0
+        if(type == "number")
+        {
+            for(let x = 0; x < 2; x++)
+            {
+                input_split[x] = "0"
+            }
+        }
+        else
+        {
+            console.log("Zerado!")
+            card_input.innerHTML = "Jane Appleseed"
+        }
+
+    }
+    
+    if (text_input_last == " ")
+    {
+        if(type == "number")
+        {
+            console.log("Espaço! fazer nada!")
+        }
+        else
+        {
+            input_split[lenght_new - 1] = " "
         }
     }
     else
     {
-        month_split[lenght_month_new - 1] = text_month_last
+        card_input.innerHTML = ""
+        input_split[lenght_new - 1] = text_input_last
     }
 
-    card_month.innerHTML = ""
-    for(let y = 0; y < 2; y++)
+    console.log("lenght input split é  " + lenght_input_split)
+
+    if (type == "number")
     {
-        console.log("y é " + y)
-        card_month.innerHTML += month_split[y]
+        for(let y = 0; y < maxlenght; y++)
+        {
+            card_input.innerHTML += input_split[y]
+        }
+    }
+    else
+    {
+        for(let y = 0; y < text_input_split.length; y++)
+        {
+            card_input.innerHTML += input_split[y]
+        }
     }
 
+    if(type != "number" && text_input_last == undefined && lenght_new == 0)
+    {
+        card_input.innerHTML = "Jane Appleseed"
+    }
+
+    console.log(type)
+    return lenght_old
+}
+
+function input_month()
+{
+    //character(length_month_old, month_input, month_split, card_month)
+    length_month_old = character(length_month_old, month_input, month_split, card_month, "number", 2)
+    console.log(month_split)
 }
 
 function input_year()
 {
-    console.log("lenght month old é " + length_month_old)
-    
-    let lenght_year_new = ((year_input).value).length
-    let text_year = (year_input).value
-    let text_year_split = text_year.split("")
-    console.log(text_year_split)
-    console.log("lenght year new é " + lenght_year_new)
-
-    let text_year_last = text_year_split[(text_year_split).length - 1]
-    console.log("text year last number é " + text_year_last)
-
-    
-
-    if(lenght_year_new > length_year_old)
-    {
-        console.log("Adicionado! Year")
-        length_year_old++
-    }
-    else if (length_year_old > lenght_year_new)
-    {
-        console.log("Removido! Year")
-        length_year_old--
-        year_split[length_year_old] = "0"
-        //Colocar algo aqui
-    }
-    console.log("lenght month old atualizado é " + length_year_old)
-
-
-    if (text_year_last == " ")
-    {
-        console.log("Espaço! fazer nada!")
-    }
-    else if (lenght_year_new == 0)
-    {
-        lenght_year_new = 0
-        for(let x = 0; x < 2; x++)
-        {
-            year_split[x] = "0"
-        }
-    }
-    else
-    {
-        year_split[lenght_year_new - 1] = text_year_last
-    }
-
-    card_year.innerHTML = ""
-    for(let y = 0; y < 2; y++)
-    {
-        console.log("y é " + y)
-        card_year.innerHTML += year_split[y]
-    }
+    length_year_old = character(length_year_old, year_input, year_split, card_year, "number", 2)
 }
 
 function input_cvc()
 {
-    console.log("lenght month old é " + lenght_cvc_old)
-    let lenght_cvc_new = ((cvc_input).value).length
-    let text_cvc = (cvc_input).value
-    let text_cvc_split = text_cvc.split("")
-    console.log(text_cvc_split)
-    console.log("lenght year new é " + lenght_cvc_new)
-
-    let text_cvc_last = text_cvc_split[(text_cvc_split).length - 1]
-    console.log("text year last number é " + text_cvc_last)
-
-    
-
-    if(lenght_cvc_new > lenght_cvc_old)
-    {
-        console.log("Adicionado! Year")
-        lenght_cvc_old++
-    }
-    else if (lenght_cvc_old > lenght_cvc_new)
-    {
-        console.log("Removido! Year")
-        lenght_cvc_old--
-        cvc_split[lenght_cvc_old] = "0"
-    }
-    console.log("lenght cvc old atualizado é " + lenght_cvc_old)
-
-
-    if (text_cvc_last == " ")
-    {
-        console.log("Espaço! fazer nada!")
-    }
-    else if (lenght_cvc_new == 0)
-    {
-        lenght_cvc_new = 0
-        for(let x = 0; x < 3; x++)
-        {
-            cvc_split[x] = "0"
-        }
-    }
-    else
-    {
-        cvc_split[lenght_cvc_new - 1] = text_cvc_last
-    }
-
-    card_cvc.innerHTML = ""
-    for(let y = 0; y < 3; y++)
-    {
-        console.log("y é " + y)
-        card_cvc.innerHTML += cvc_split[y]
-    } 
+    lenght_cvc_old = character(lenght_cvc_old, cvc_input, cvc_split, card_cvc, "number", 3)
 }
 
+function input_name()
+{
+    lenght_name_old = character(lenght_name_old, name_input, names_split, card_name)
+}
+
+/*
 function input_name()
 {
     console.log("lenght name old é " + lenght_name_old)
@@ -365,6 +318,7 @@ function input_name()
         card_name.innerHTML += names_split[y]
     } 
 }
+*/
 
 
 function Confirm()
